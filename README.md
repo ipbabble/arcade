@@ -1,5 +1,7 @@
 # Asteroids Game — Modern TypeScript Edition
 
+[![CI](https://github.com/ipbabble/arcade/actions/workflows/ci.yml/badge.svg)](https://github.com/ipbabble/arcade/actions/workflows/ci.yml)
+
 A modern implementation of the classic Asteroids built with TypeScript, Vite, and PixiJS.
 
 ## Quick start
@@ -11,10 +13,26 @@ npm run dev
 ```
 
 Build / preview:
+
 ```bash
 npm run build
 npm run preview
 ```
+
+## Quality
+
+- Typecheck: `npm run typecheck`
+- Lint: `npm run lint`
+- Test (Vitest + jsdom): `npm test` (watch) or `npm test -- --run`
+
+### Git hooks
+
+This repo uses `simple-git-hooks` + `lint-staged`:
+
+- pre-commit: runs ESLint (fix) and Prettier on staged files
+- pre-push: runs typecheck and the test suite
+
+Hooks are installed automatically via the `prepare` script. If needed, run `npm run prepare`.
 
 ## Controls
 
@@ -35,6 +53,7 @@ npm run preview
   - UFO spawns later in a level at random intervals
 
 Notes:
+
 - Mode must be chosen at the start of a run. The Mode button disables once play begins and re-enables after Restart.
 - Restart via HUD asks for confirmation. Keyboard R restarts immediately.
 
