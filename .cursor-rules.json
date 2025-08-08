@@ -1,0 +1,56 @@
+{
+  "rules": [
+    {
+      "name": "Browser Game (Vite + TypeScript + PixiJS)",
+      "match": {
+        "language": ["typescript", "javascript"]
+      },
+      "rule": {
+        "auto-install": true,
+        "language": "typescript",
+        "linter": "eslint",
+        "formatter": "prettier",
+        "root": "src/",
+        "commands": [
+          {
+            "name": "dev",
+            "command": "npm run dev",
+            "description": "Starts the development server with Vite. Your game will be live at http://localhost:5173."
+          },
+          {
+            "name": "build",
+            "command": "npm run build",
+            "description": "Bundles the game for production into the 'dist' folder."
+          },
+          {
+            "name": "test",
+            "command": "npm run test",
+            "description": "Runs unit and integration tests using Vitest."
+          }
+        ],
+        "docs": [
+          {
+            "title": "Project Overview: Modern Browser Games",
+            "content": "This setup is designed for building high-performance 2D browser games like Tetris and Space Invaders. It uses a modern toolchain focused on speed and code quality."
+          },
+          {
+            "title": "Tech Stack 🚀",
+            "content": "- **Vite**: A next-generation build tool that provides an extremely fast development server and optimized production builds.\n- **TypeScript**: A superset of JavaScript that adds static types, helping you catch errors early and write more robust code.\n- **PixiJS**: A powerful and fast 2D WebGL rendering library, perfect for creating visually rich, interactive games that run smoothly in any browser.\n- **ESLint & Prettier**: The standard duo for ensuring consistent code style and quality."
+          },
+          {
+            "title": "Initial Project Setup",
+            "content": "Before you start coding, you need to create the project and install the dependencies.\n\n**1. Create a Vite + TypeScript project:**\n```bash\nnpm create vite@latest your-game-name -- --template vanilla-ts\ncd your-game-name\n```\n\n**2. Install dependencies:**\n```bash\nnpm install\n```\n\n**3. Add PixiJS to your project:**\n```bash\nnpm install pixi.js\n```"
+          },
+          {
+            "title": "Recommended `package.json` Scripts",
+            "content": "To use the commands defined above, add these scripts to your `package.json` file:\n\n```json\n\"scripts\": {\n  \"dev\": \"vite\",\n  \"build\": \"vite build\",\n  \"preview\": \"vite preview\",\n  \"test\": \"vitest\" \n}\n```\n*Note: You may need to install `vitest` as a dev dependency (`npm install -D vitest`) to use the test command.*"
+          },
+          {
+            "title": "Example: Getting Started with PixiJS",
+            "content": "In your `src/main.ts`, you can initialize a PixiJS application. This will create the `<canvas>` element for your game.\n\n\n\n```typescript\nimport * as PIXI from 'pixi.js';\nimport './style.css';\n\n// Create a new PixiJS application\nconst app = new PIXI.Application();\n\n// Asynchronously initialize the application\nasync function init() {\n  await app.init({ \n    width: 800, \n    height: 600, \n    backgroundColor: 0x1099bb \n  });\n  // Add the canvas that PixiJS created to the HTML page\n  document.body.appendChild(app.canvas);\n\n  // Your game logic starts here!\n}\n\ninit();\n```"
+          }
+        ]
+      }
+    }
+  ]
+}
