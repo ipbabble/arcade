@@ -34,6 +34,46 @@ This repo uses `simple-git-hooks` + `lint-staged`:
 
 Hooks are installed automatically via the `prepare` script. If needed, run `npm run prepare`.
 
+## Embed in your website
+
+You can include the built game on any site by loading the compiled JS and providing a container element. The app will render into a div with id `app` if present, otherwise it will attach to `document.body`.
+
+### Option A: via CDN (GitHub Pages or similar)
+
+1. Build and host `dist/` somewhere publicly (e.g., GitHub Pages).
+
+2. On your site, add:
+
+```html
+<div id="app"></div>
+<link rel="stylesheet" href="https://your.cdn.example/arcade/dist/style.css" />
+<script type="module">
+  import 'https://your.cdn.example/arcade/dist/assets/index.js';
+  // The game auto-initializes and attaches to #app or body
+  // If you need to defer until the page is ready:
+  // window.addEventListener('DOMContentLoaded', () => import('.../index.js'))
+</script>
+```
+
+### Option B: embed locally in an existing site
+
+Copy files from `dist/` into your site’s public assets and reference them similarly:
+
+```html
+<div id="app"></div>
+<link rel="stylesheet" href="/assets/asteroids/style.css" />
+<script type="module">
+  import '/assets/asteroids/assets/index.js';
+  // Auto-initializes
+</script>
+```
+
+Notes:
+
+- The canvas is square and auto-sizes within viewport bounds.
+- If you include a `<div id="app"></div>` where you want it to render, the canvas will be appended inside that element; otherwise it goes to `document.body`.
+- No global variables are required; the entry script initializes on import.
+
 ## Controls
 
 - WASD or Arrow Keys: rotate/ thrust
