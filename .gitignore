@@ -10,11 +10,14 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
+logs/
+*.log
 
 # Editor files
 .vscode/
 .idea/
 .DS_Store
+Thumbs.db
 
 # Env
 .env
@@ -24,3 +27,6 @@ pnpm-debug.log*
 *.local
 *.swp
 *.swo
+coverage/
+.eslintcache
+**/*.tsbuildinfo

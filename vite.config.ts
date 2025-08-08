@@ -1,13 +1,14 @@
-import { defineConfig } from 'vite'
+import { defineConfig } from 'vite';
 
 export default defineConfig({
   plugins: [],
   server: {
     port: 5173,
-    open: true
+    open: true,
   },
   build: {
     outDir: 'dist',
-    sourcemap: true
-  }
-})
+    sourcemap: true,
+    target: 'es2022',
+  },
+});
